@@ -28,6 +28,7 @@
       <div class="row-content">
         <label class="label text" for="name">Name</label>
         <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
+        <error-output class="text-error" for="name"></error-output>
       </div>
       <!-- UC 3 -->
       <div class="row-content">
@@ -155,6 +156,7 @@
       </div>
     </form>
   </div>
+  <!--UC 8 -->
   <script>
     const salary = document.querySelector('#salary');
     const output = document.querySelector('.salary-output');
@@ -163,6 +165,8 @@
       output.textContent = salary.value;
     })
   </script>
+  <!--UC 9 -->
+  <script type="text/javascript" src="../js/Employee_Payroll.js"></script>
 </body>
 
 </html>
