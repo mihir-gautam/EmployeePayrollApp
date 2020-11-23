@@ -26,7 +26,7 @@ function save() {
     }
 }
 let empPayroll = [];
-// Employee payroll object creation
+// Employee payroll object creation 
 function createEmployeePayroll() {
     let employeepayrollData = new PayrollModel();
     employeepayrollData.name = getInputValueById('#name');
@@ -50,6 +50,7 @@ function getSelectedValues(attribute) {
     });
     return selItems;
 }
+
 function getInputValueById(id) {
     let value = document.querySelector(id).value;
     return value;
