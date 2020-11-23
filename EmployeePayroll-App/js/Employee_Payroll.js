@@ -62,6 +62,6 @@ class PayrollModel {
     }
     
     toString() {
-        return "Id = " + this.id + "\nName = " + this.name + "\nSalary = " + this.salary + "\nGender = " + this.gender + " \nStartdate = " + this.startDate + "\nDepartments = " + this.department + "\nProfile = " + this.profile + "\nNote = " + this.note;
+        return "Name = " + this.name + "\nSalary = " + this.salary + "\nGender = " + this.gender + " \nStartdate = " + this.startDate + "\nDepartments = " + this.department + "\nNote = " + this.note;
     }
 }
