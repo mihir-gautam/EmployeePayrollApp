@@ -49,7 +49,7 @@ function getInputValueById(id) {
     return value;
 }
 function getElementValueById(id) {
-    let value = document.getElementById(id).value
+    let value = document.getElementById(id).value;
     return value;
 }
 function save(){
