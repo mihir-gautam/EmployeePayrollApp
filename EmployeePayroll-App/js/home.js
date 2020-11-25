@@ -1,12 +1,13 @@
 let employeePayrollList;
 window.addEventListener('DOMContentLoaded', (event) => {
   employeePayrollList = getEmployeePayrollListFromStorage();
-  document.querySelector('.emp-count').textContent = employeePayrollList.length;
+  document.querySelector(".emp-count").textContent = employeePayrollList.length;
   createInnerHTML();
+  localStorage.removeItem('editEmp');
 });
 
 const getEmployeePayrollListFromStorage = () => {
-  return localStorage.getItem('employeePayrollList')?JSON.parse(localStorage.getItem('employeePayrollList')) : [];
+  return localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
 }
 
 const createInnerHTML = () => {
@@ -28,11 +29,11 @@ const createInnerHTML = () => {
         <td>${employeePayrollData._gender}</td>
         <td>${getDeptHtml(employeePayrollData._department)}</td>
         <td>${employeePayrollData._salary}</td>
-        <td>${employeePayrollData._startDate}</td>
+        <td>${stringifyDate(employeePayrollData._startDate)}</td>
         <td>
-          <img name="${employeePayrollData._id}" onclick="remove(this)" alt="delete" 
+          <img id="${employeePayrollData._id}" onclick="remove(this)" alt="delete" 
                     src="../assets/icons/delete-black-18dp.svg">
-          <img name="${employeePayrollData._id}" onclick="update(this)" alt="edit" 
+          <img id="${employeePayrollData._id}" onclick="update(this)" alt="edit" 
                     src="../assets/icons/create-black-18dp.svg">
         </td>
       </tr>`;
@@ -61,4 +62,13 @@ const remove = (node) => {
   localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
   document.querySelector(".emp-count").textContent = employeePayrollList.length;
   createInnerHTML();
+}
+
+const update = (node) => {
+  let employeePayrollData = employeePayrollList.find(empData => empData._id == node.id);
+  if (!employeePayrollData) {
+    return;
+  }
+  localStorage.setItem("editEmp", JSON.stringify(employeePayrollData));
+  window.location.replace(site_properties.add_employee_page);
 }
