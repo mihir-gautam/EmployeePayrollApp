@@ -64,7 +64,7 @@ function save(){
     }
 }
 function createAndUpdateStorage(employeepayrollData){
-    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    let employeePayrollList = JSON.parse(localStorage.getItem("employeePayrollList"));
     if(employeePayrollList != undefined)
     {
         employeePayrollList.push(employeepayrollData);
@@ -74,7 +74,7 @@ function createAndUpdateStorage(employeepayrollData){
         employeePayrollList = [employeepayrollData];
     }
     alert("Object Added to local storage" + employeePayrollList.toString());
-    localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
+    localStorage.setItem("employeePayrollList",JSON.stringify(employeePayrollList));
 }
 const resetForm = () => {
     document.querySelector("#name").value = "";
